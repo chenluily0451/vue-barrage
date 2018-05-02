@@ -1,28 +1,62 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <div class="videoContent">
+      <barRageText :commentList="commentText"/>
+      <barRageInput @commentText="getCommentText"/>
+    </div>
+    <div class="commentContent">
+      <CommentList :commentList="commentText" />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import barRageText from './components/BarrageText'
+import barRageInput from './components/BarRageInput'
+import CommentList from './components/CommentList'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    barRageText,
+    barRageInput,
+    CommentList
+  },
+  data () {
+    return {
+      commentText: []
+    }
+  },
+  methods: {
+    getCommentText: function (value) {
+      this.commentText.push(value)
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+  *{
+    padding:0;
+    margin:0;
+  }
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'PingFang SC', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  width:100vw;
+  height:100vh;
+  .videoContent{
+    flex-grow:1;
+    padding:5px 0;
+    position: relative;
+  }
+  .commentContent{
+    width:30%;
+    padding:5px 0;
+    padding-left: 10px;
+    border-left:1px solid #ccc;
+  }
 }
 </style>
