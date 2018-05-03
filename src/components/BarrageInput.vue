@@ -1,6 +1,6 @@
 <template>
   <div id="barrageInput">
-    <input type="text" placeholder="请输入文字" v-model="inputValue" @keyup.enter="setValue()">
+    <input type="text" placeholder="请输入文字" v-model="inputValue" @keyup.enter="setValue()" maxlength="30">
   </div>
 </template>
 

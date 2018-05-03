@@ -57,6 +57,7 @@ export default {
     padding:5px 0;
     padding-left: 10px;
     border-left:1px solid #ccc;
+    flex-shrink: 0;
   }
 }
 </style>
